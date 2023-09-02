@@ -1,27 +1,27 @@
 import { supabase } from '$lib/supabaseClient';
 import type { PostgrestError } from '@supabase/supabase-js';
 
-interface PromptsRow {
+interface AssignmentName {
 	assignment_name: string;
 	id: string;
 }
 
-interface PromptsData {
-	prompts: PromptsRow[];
+interface AssignmentData {
+	assignmentNames: AssignmentName[];
 	error: PostgrestError | null;
 }
 
-export async function load(): Promise<PromptsData> {
+export async function load(): Promise<AssignmentData> {
 	const { data, error } = await supabase.from('prompts').select('id,assignment_name');
 
 	if (error) {
-		return { prompts: [], error: error };
+		return { assignmentNames: [], error: error };
 	}
 
 	if (data.length === 0) {
-		return { prompts: [], error: error };
+		return { assignmentNames: [], error: error };
 	} else {
-		return { prompts: data, error: error };
+		return { assignmentNames: data, error: error };
 	}
 }
 

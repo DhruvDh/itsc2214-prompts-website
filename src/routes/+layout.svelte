@@ -26,11 +26,11 @@
 	</HeaderNav>
 </Header>
 
-{#if data.prompts.length > 0}
+{#if data.assignmentNames.length > 0}
 	<SideNav bind:isOpen={isSideNavOpen}>
 		<SideNavItems>
-			{#each data.prompts as prompt (prompt.id)}
-				<SideNavLink href="/prompts/{prompt.id}" text={prompt.assignment_name} />
+			{#each data.assignmentNames as assignmentName (assignmentName.id)}
+				<SideNavLink href="/prompts/{assignmentName.id}" text={assignmentName.assignment_name} />
 			{/each}
 		</SideNavItems>
 	</SideNav>
@@ -41,6 +41,7 @@
 		</SideNavItems>
 	</SideNav>
 {/if}
+
 <slot />
 
 <style>
