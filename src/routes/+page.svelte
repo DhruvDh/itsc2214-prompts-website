@@ -25,7 +25,7 @@
 					expressive
 					icon={ArrowRight}>Go to First Assignment</Button
 				>
-				<Button href="/practice" icon={ArrowRight} size="xl" expressive>Practice</Button>
+				<Button href="/" icon={ArrowRight} size="xl" expressive>Practice</Button>
 			</ButtonSet>
 		</Column>
 	</Grid>
