@@ -16,16 +16,16 @@
 
 		<Column>
 			<ButtonSet>
-				<Button href="/instructions" icon={ArrowRight} size="xl" expressive
-					>Review Instructions</Button
-				>
 				<Button
 					href={`prompts/${data.assignmentNames[0].id}`}
 					size="xl"
 					expressive
-					icon={ArrowRight}>Go to First Assignment</Button
+					icon={ArrowRight}
 				>
-				<Button href="/" icon={ArrowRight} size="xl" expressive>Practice</Button>
+					Go to First Assignment
+				</Button>
+				<Button href="/" size="xl" expressive icon={ArrowRight}>Practice</Button>
+				<Button href="/" size="xl" expressive icon={ArrowRight}>Ask Questions</Button>
 			</ButtonSet>
 		</Column>
 	</Grid>

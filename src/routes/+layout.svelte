@@ -6,7 +6,6 @@
 		SideNav,
 		SideNavItems,
 		SideNavLink,
-		SkeletonPlaceholder,
 		SkeletonText,
 		SkipToContent
 	} from 'carbon-components-svelte';
@@ -23,6 +22,8 @@
 	</svelte:fragment>
 	<HeaderNav>
 		<HeaderNavItem href="/instructions" text="Instructions" />
+		<HeaderNavItem href="/" text="Practice" />
+		<HeaderNavItem href="/" text="Ask Questions" />
 	</HeaderNav>
 </Header>
 

@@ -6,6 +6,7 @@
 		Column,
 		Content,
 		Grid,
+		Link,
 		Row,
 		Tab,
 		TabContent,
@@ -34,6 +35,12 @@
 		<Row>
 			<Column>
 				<p>
+					Attach the file to a new <Link href={data.LLM_chat_url}>chat</Link> and send the following
+					message -
+				</p>
+				<CodeSnippet>I am ready, please start following your instructions</CodeSnippet>
+				<hr />
+				<p>
 					The file primarily consists of three sections - Instructions, Goals, and the Lesson. You
 					can explore the contents of each section below.
 				</p>
@@ -45,8 +52,9 @@
 					icon={DocumentDownload}
 					href={fileDownloadURI}
 					download={`${data.assignment_name}.md`}
+					size="xl"
 				>
-					Click here to Download file</Button
+					Click here to Download the file</Button
 				>
 			</Column>
 		</Row>
