@@ -10,6 +10,7 @@
 		SkeletonText,
 		SkipToContent
 	} from 'carbon-components-svelte';
+	import 'carbon-components-svelte/css/all.css';
 
 	let isSideNavOpen = false;
 
@@ -21,7 +22,6 @@
 		<SkipToContent />
 	</svelte:fragment>
 	<HeaderNav>
-		<HeaderNavItem href="/" text="Assignments" />
 		<HeaderNavItem href="/instructions" text="Instructions" />
 	</HeaderNav>
 </Header>

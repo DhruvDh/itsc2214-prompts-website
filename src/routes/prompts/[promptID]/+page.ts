@@ -4,9 +4,17 @@ import { supabase } from '$lib/supabaseClient.js';
 interface PromptData {
 	id: string;
 	assignment_name: string;
+	LLM_type: string;
+	LLM_chat_url: string;
+	instructions_url: string;
+	lesson_url: string;
+	goals_url: string;
+	lesson: string;
+	goals: string;
+	instructions: string;
 }
 
-export async function load({ params }): Promise<PromptData | HttpError> {
+export async function load({ fetch, params }): Promise<PromptData | HttpError> {
 	const { data, error } = await supabase
 		.from('prompts')
 		.select('*')
@@ -17,7 +25,19 @@ export async function load({ params }): Promise<PromptData | HttpError> {
 		return svelteKitError(503, error.message);
 	}
 
+	const lesson_response = await fetch(data.lesson_url, {});
+	const lesson = await lesson_response.text();
+
+	const goals_response = await fetch(data.goals_url, {});
+	const goals = await goals_response.text();
+
+	const instructions_response = await fetch(data.instructions_url, {});
+	const instructions = await instructions_response.text();
+
 	return {
-		...data
+		...data,
+		lesson: `<lesson>\n${lesson}\n</lesson>`,
+		goals: `<goals>\n${goals}\n</goals>`,
+		instructions: `<instructions>\n${instructions}\n</instructions>`
 	};
 }
