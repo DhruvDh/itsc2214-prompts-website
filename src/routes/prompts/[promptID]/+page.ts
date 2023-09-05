@@ -25,14 +25,14 @@ export async function load({ fetch, params }): Promise<PromptData | HttpError> {
 		return svelteKitError(503, error.message);
 	}
 
-	const lesson_response = await fetch(data.lesson_url, {});
-	const lesson = await lesson_response.text();
+	const lesson_response = fetch(data.lesson_url, {});
+	const goals_response = fetch(data.goals_url, {});
+	const instructions_response = fetch(data.instructions_url, {});
 
-	const goals_response = await fetch(data.goals_url, {});
-	const goals = await goals_response.text();
-
-	const instructions_response = await fetch(data.instructions_url, {});
-	const instructions = await instructions_response.text();
+	const responses = await Promise.all([lesson_response, goals_response, instructions_response]);
+	const [lesson, goals, instructions] = await Promise.all(
+		responses.map((response) => response.text())
+	);
 
 	return {
 		...data,
