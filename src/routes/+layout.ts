@@ -24,5 +24,3 @@ export async function load(): Promise<AssignmentData> {
 		return { assignmentNames: data, error: error };
 	}
 }
-
-export const prerender = true;

@@ -19,7 +19,7 @@
 	<Grid>
 		<Row>
 			<Column>
-				<h1 id="instructions">Instructions</h1>
+				<h1 id="instructions">Instructions for Students</h1>
 			</Column>
 		</Row>
 		<Row>

@@ -41,8 +41,8 @@
 				<CodeSnippet>I am ready, please start following your instructions</CodeSnippet>
 				<hr />
 				<p>
-					The file primarily consists of three sections - Instructions, Goals, and the Lesson. You
-					can explore the contents of each section below.
+					The file primarily consists of three sections - Learning Goals, Instructions, and the
+					Lesson. You can explore the contents of each section below.
 				</p>
 			</Column>
 
@@ -62,7 +62,7 @@
 			<Column>
 				<Tabs>
 					<Tab label="Learning Goals" />
-					<Tab label="Instructions" />
+					<Tab label="Instructions for {data.LLM_type}" />
 					<Tab label="Lesson" />
 					<svelte:fragment slot="content">
 						<TabContent>

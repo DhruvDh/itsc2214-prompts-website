@@ -21,7 +21,7 @@
 		<SkipToContent />
 	</svelte:fragment>
 	<HeaderNav>
-		<HeaderNavItem href="/instructions" text="Instructions" />
+		<HeaderNavItem href="/instructions" text="Instructions for Students" />
 		<HeaderNavItem href="/" text="Practice" />
 		<HeaderNavItem href="/" text="Ask Questions" />
 	</HeaderNav>
