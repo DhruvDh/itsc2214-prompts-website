@@ -12,6 +12,8 @@
 	} from 'carbon-components-svelte';
 	import { ArrowRight } from 'carbon-icons-svelte';
 
+	import copy from 'clipboard-copy';
+
 	export let data;
 </script>
 
@@ -44,7 +46,9 @@
 							<strong>Initiate Chat</strong>:
 							<UnorderedList>
 								<ListItem
-									>Click on <CodeSnippet type="inline">Start new Chat.</CodeSnippet></ListItem
+									>Click on <CodeSnippet type="inline" copy={async (text) => await copy(text)}
+										>Start new Chat.</CodeSnippet
+									></ListItem
 								>
 							</UnorderedList>
 						</ListItem>
@@ -52,8 +56,9 @@
 							<strong>File Attachment</strong>:
 							<UnorderedList>
 								<ListItem
-									>Attach the <CodeSnippet type="inline">.md</CodeSnippet> file you downloaded in Step
-									1.</ListItem
+									>Attach the <CodeSnippet type="inline" copy={async (text) => await copy(text)}
+										>.md</CodeSnippet
+									> file you downloaded in Step 1.</ListItem
 								>
 							</UnorderedList>
 						</ListItem>
@@ -61,8 +66,15 @@
 							<strong>Starting the Conversation</strong>:
 							<UnorderedList>
 								<ListItem>
-									Type <CodeSnippet type="inline"
-										>I am ready, please start following your instructions</CodeSnippet
+									Type <CodeSnippet
+										type="inline"
+										copy={async (code) => {
+											try {
+												await copy('I am ready, please start following your instructions');
+											} catch (e) {
+												console.log(e);
+											}
+										}}>I am ready, please start following your instructions</CodeSnippet
 									> and press enter.
 								</ListItem>
 							</UnorderedList>
@@ -103,16 +115,19 @@
 				<Content>
 					<UnorderedList>
 						<ListItem>
-							You may occasionally need to use messages like <CodeSnippet type="inline"
-								>please continue</CodeSnippet
-							>, or <CodeSnippet type="inline">let us go to the next question</CodeSnippet> etc.
+							You may occasionally need to use messages like <CodeSnippet
+								type="inline"
+								copy={async (text) => await copy(text)}>please continue</CodeSnippet
+							>, or <CodeSnippet type="inline" copy={async (text) => await copy(text)}
+								>let us go to the next question</CodeSnippet
+							> etc.
 						</ListItem>
 						<ListItem>
 							Keep your answers simple and not especially formal. <br /> For example:
 							<CodeSnippet type="inline"
 								>it compiles the Java code we write to bytecode.</CodeSnippet
 							> and
-							<CodeSnippet type="inline">
+							<CodeSnippet type="inline" copy={async (text) => await copy(text)}>
 								we need to check types to ensure the statements we use are valid.
 							</CodeSnippet>
 						</ListItem>
